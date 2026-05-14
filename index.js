@@ -333,7 +333,7 @@ app.get('/exercise-gif/:name', async (req, res) => {
       `https://exercisedb.p.rapidapi.com/exercises/name/${encodeURIComponent(exerciseName)}?limit=1`,
       {
         headers: {
-          'x-rapidapi-key':  '79a931ec6cmsh601c13195bb9de8p168e5ajsnd1266cfb54f9',
+          'x-rapidapi-key':  '8a1113c1dfmsh95a13099d391aa3p1e758djsnfaeb135e18fc',
           'x-rapidapi-host': 'exercisedb.p.rapidapi.com',
         },
       },
