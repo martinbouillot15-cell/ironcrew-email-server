@@ -5,7 +5,7 @@ const { Resend } = require('resend');
 
 const app    = express();
 const resend = new Resend('re_HWgG51B9_M7LGpU3m9QXSE3xaTP1jDJRf');
-const FROM   = 'IronCrew <noreply@ironcrew.fit>';
+const FROM   = 'IronCrew <onboarding@resend.dev>';
 
 const sha256 = (str) => crypto.createHash('sha256').update(str).digest('hex');
 
