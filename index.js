@@ -21,10 +21,12 @@ app.post('/send-welcome', async (req, res) => {
   const { email, userName } = req.body;
   if (!email || !userName) return res.status(400).json({ error: 'Missing fields' });
 
+  const recipient = process.env.NODE_ENV === 'production' ? email : 'martinbouillot15@gmail.com';
+
   try {
     await resend.emails.send({
       from: FROM,
-      to: email,
+      to: recipient,
       subject: '💪 Bienvenue sur IronCrew !',
       html: `
 <!DOCTYPE html>
@@ -120,10 +122,12 @@ app.post('/send-verification', async (req, res) => {
   const { email, userName, verificationLink } = req.body;
   if (!email) return res.status(400).json({ error: 'Missing email' });
 
+  const recipient = process.env.NODE_ENV === 'production' ? email : 'martinbouillot15@gmail.com';
+
   try {
     await resend.emails.send({
       from: FROM,
-      to: email,
+      to: recipient,
       subject: '✅ Confirme ton compte IronCrew',
       html: `
 <!DOCTYPE html>
@@ -189,12 +193,13 @@ app.post('/send-reset', async (req, res) => {
   const { email, resetLink } = req.body;
   if (!email) return res.status(400).json({ error: 'Missing email' });
 
+  const recipient = process.env.NODE_ENV === 'production' ? email : 'martinbouillot15@gmail.com';
   const link = resetLink || 'https://ironcrew.fit';
 
   try {
     await resend.emails.send({
       from: FROM,
-      to: email,
+      to: recipient,
       subject: '🔐 Réinitialise ton mot de passe IronCrew',
       html: `
 <!DOCTYPE html>
